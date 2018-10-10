@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test App</title>
+    <link rel="stylesheet" href="{% static "files/css/style.css" %}">
+  </head>
+  <body>
+    <h1>This is test app</h1>
+
+    <h3>Manufacturer is {{ Manufacturer }}</h3>
+    <h4>Model is {{ Model }}</h4>
+
+    <img src="{% static "files/images/car.jpg" %}" alt="">
+  </body>
+</html>

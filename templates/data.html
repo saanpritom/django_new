@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Data</title>
+    <link rel="stylesheet" href="{% static "files/css/style.css" %}">
+  </head>
+  <body>
+    <h1>This my data</h1>
+
+    {% if all_records %}
+
+      <table>
+        <thead>
+          <tr>
+            <th>Webpage Name</th>
+            <th>Webpage Url</th>
+            <th>Date of Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dts in all_records %}
+            <tr>
+              <td>{{ dts.name }}</td>
+              <td>{{ dts.url }}</td>
+              <td>{{ dts.date }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% else %}
+        <p>There is no data</p>
+
+    {% endif %}
+
+  </body>
+</html>
