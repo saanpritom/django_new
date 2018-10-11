@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Webpage Form</title>
+  </head>
+  <body>
+    <h1>Webpage form</h1>
+    <a href="{% url 'datatable' %}">Go back to data table</a>
+    <form method="POST">
+      {{ mywebpagemodelform.as_p }}
+      {% csrf_token %}
+      <input type="submit" name="" value="Create Webpage">
+    </form>
+  </body>
+</html>

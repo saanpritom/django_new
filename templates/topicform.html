@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Topic Form</title>
+  </head>
+  <body>
+    <h1>Topic form</h1>
+    <form method="POST">
+      {{ mytopicform.as_p }}
+      {% csrf_token %}
+      <input type="submit" name="" value="Create Topic">
+    </form>
+  </body>
+</html>

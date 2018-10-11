@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from testapp.models import AccessRecords, Topic, Webpage
-from testapp.forms import FormName
+from testapp.forms import FormName, TopicModelForm, WebpageModelForm
 
 # Create your views here.
 def index(request):
@@ -34,3 +34,28 @@ def myformview(request):
 
 
     return render(request, 'myform.html', {'form': forms})
+
+def mytopicmodelform(request):
+    mytopicform = TopicModelForm()
+
+    if request.method == 'POST':
+        topic_submitted_form = TopicModelForm(request.POST)
+
+        if topic_submitted_form.is_valid():
+            topic_submitted_form.save()
+            return allwebdata(request)
+
+    return render(request, 'topicform.html', {'mytopicform': mytopicform})
+
+
+def mywebpagemodelform(request):
+    mywebpagemodelformob = WebpageModelForm()
+
+    if request.method == 'POST':
+        webpagemodel_submitted_form = WebpageModelForm(request.POST)
+
+        if webpagemodel_submitted_form.is_valid():
+            webpagemodel_submitted_form.save()
+            return HttpResponse('Data saved')
+
+    return render(request, 'webpageform.html', {'mywebpagemodelform': mywebpagemodelformob})
